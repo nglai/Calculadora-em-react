@@ -52,6 +52,24 @@ export default function Content(){
         })
     }
 
+    const aElev = () => {
+        setCalculo({
+            ...calculo, resultado: (calculo.a * calculo.a)
+        })
+    }
+
+    const bElev = () => {
+        setCalculo({
+            ...calculo, resultado: (calculo.b * calculo.b)
+        })
+    }
+
+    const ac = () => {
+        setCalculo({
+            ...calculo, resultado: (calculo.a="",calculo.b="")
+        })
+    }
+
     return(
         <View style={styles.container}>
             <Text style={styles.resultado}>{calculo.resultado}</Text>
@@ -69,42 +87,64 @@ export default function Content(){
                     keyboardType="numeric"
                 />
             </View>
+
             <View style={styles.alinhamento}>
                 <TouchableOpacity 
                     style={styles.button}
                     onPress={soma}>
-                    <Text>+</Text>
+                    <Text style={styles.textButton}>+</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.button}
                     onPress={subtracao}>
-                    <Text>-</Text>
+                    <Text style={styles.textButton}>-</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.button}
                     onPress={multiplicacao}>
-                    <Text>*</Text>
+                    <Text style={styles.textButton}>*</Text>
                 </TouchableOpacity>
             </View>
+
             <View style={styles.alinhamento}>
                 <TouchableOpacity 
                     style={styles.button}
                     onPress={divisao}>
-                    <Text>/</Text>
+                    <Text style={styles.textButton}>/</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.button}
                     onPress={restoDivisao}>
-                    <Text>%</Text>
+                    <Text style={styles.textButton}>%</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                     style={styles.button}
                     onPress={exponencial}>
-                    <Text>**</Text>
+                    <Text style={styles.textButton}>a^b</Text>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.alinhamento}>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={aElev}>
+                    <Text style={styles.textButton}>a²</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={bElev}>
+                    <Text style={styles.textButton}>b²</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={ac}>
+                    <Text style={styles.textButton}>AC</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -116,47 +156,55 @@ const styles = StyleSheet.create({
         backgroundColor: '#A8E4FF',
         alignItems: 'center',
         justifyContent: 'center',
-        marginLeft:"25%",
-        marginTop:50,
-        paddingTop:20,
+        marginLeft:"15%",
+        marginTop:"20%",
+        marginBottom: "30%",
+        paddingTop:"5%",
         paddingBottom:20,
         borderWidth:2,
-        width: 200,
+        width: "70%",
         borderRadius:10,
       },
 
     resultado:{
         borderWidth:1,
-        width:150,
-        height: 30,
+        width:"70%",
+        height: "14%",
         justifyContent: "center",
         alignItems: "center",
         marginBottom:20,
         textAlign:"center",
-        paddingTop:5,
+        paddingTop:"7%",
         backgroundColor:"white",
     },
 
     input:{
-        width:80,
+        width:"40%",
         borderWidth:1,
         borderRadius: 20,
         marginLeft:5,
+        marginRight:5,
         textAlign:"center",
         height:40,
         backgroundColor:"white",
+        color:"purple",
     },
 
     button:{
         backgroundColor:"#D0F7FF",
         borderWidth:1,
-        width: 40,
-        height: 40,
+        width: 60,
+        height: 60,
         borderRadius:50,
         justifyContent: "center",
         alignItems: "center",
         marginTop: 10,
-        marginLeft:5,
+        marginLeft:10,
+        marginRight:10,
+    },
+
+    textButton:{
+        fontSize: 20,
     },
 
     alinhamento:{
